@@ -1,0 +1,6 @@
+.settings/
+.vscode/
+.project
+target/
+.classpath
+dbchangelog.xml 
