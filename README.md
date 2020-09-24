@@ -32,5 +32,5 @@ Use the following command to generate a changelog XML file
 ### From Maven
 
 ```bash
-> .\mvnw liquibase:generateChangeLog
+> .\mvnw liquibase:diff
 ```

@@ -15,9 +15,13 @@
 		<liquibase.version>3.10.2</liquibase.version>
 		<liquibase-hibernate5.version>3.10.2</liquibase-hibernate5.version>
 		<hibernate5.version>5.4.21.Final</hibernate5.version>
+		<javassist.version>3.24.0-GA</javassist.version>
+		<validation-api.version>2.0.1.Final</validation-api.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring-boot.version>2.3.4.RELEASE</spring-boot.version>
 	</properties>
 
 	<dependencies>
@@ -30,11 +34,6 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.4.200</version>
-		</dependency>
-		<dependency>
-			<groupId>org.liquibase.ext</groupId>
-			<artifactId>liquibase-hibernate5</artifactId>
-			<version>${liquibase-hibernate5.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -60,10 +59,9 @@
 				<configuration>
 					<changeLogFile>${project.basedir}/src/main/resources/config/liquibase/master.xml</changeLogFile>
 					<outputChangeLogFile>dbchangelog.xml</outputChangeLogFile>
-					<diffChangeLogFile>${project.basedir}/src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
-					<propertyFile>liquibase.properties</propertyFile>
+					<diffChangeLogFile>${project.basedir}/src/main/resources/db/migrations/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
+					<propertyFile>src/main/resources/spring.properties</propertyFile>
 					<logging>debug</logging>
-					<contexts>!test</contexts>
 				</configuration>
 				<dependencies>
 					<dependency>
@@ -77,10 +75,20 @@
 						<version>${liquibase-hibernate5.version}</version>
 					</dependency>
 					<dependency>
-						<groupId>org.hibernate</groupId>
-						<artifactId>hibernate-core</artifactId>
-						<version>${hibernate5.version}</version>
-					</dependency>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-starter-data-jpa</artifactId>
+                            <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>javax.validation</groupId>
+                            <artifactId>validation-api</artifactId>
+                            <version>${validation-api.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.javassist</groupId>
+                            <artifactId>javassist</artifactId>
+                            <version>${javassist.version}</version>
+                        </dependency>
 				</dependencies>
 			</plugin>
 		</plugins>
