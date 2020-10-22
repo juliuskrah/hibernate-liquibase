@@ -1,6 +1,6 @@
 # Liquibase Hibernate Demo
 
-This repository contains the code accompanying the tutorial at <>..
+This repository contains the code accompanying the tutorial at <https://docs.liquibase.com/workflows/database-setup-tutorials/hibernate.html>
 
 ## Running the application
 
