@@ -2,7 +2,7 @@ package com.liquibase;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * @author Julius Krah
