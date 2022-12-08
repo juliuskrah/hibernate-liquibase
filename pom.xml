@@ -24,7 +24,7 @@
         <liquibase-hibernate6.version>0-SNAPSHOT</liquibase-hibernate6.version>
         <hibernate6.version>6.1.5.Final</hibernate6.version>
         <javassist.version>3.24.0-GA</javassist.version>
-        <validation-api.version>2.0.1.Final</validation-api.version>
+        <validation-api.version>3.0.2</validation-api.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
@@ -63,8 +63,8 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>${liquibase.version}</version>
                 <configuration>
-                    <changeLogFile>master.xml</changeLogFile>
-                    <outputChangeLogFile>dbchangelog.xml</outputChangeLogFile>
+                    <changeLogFile>dbchangelog.xml</changeLogFile>
+                    <outputChangeLogFile>${project.basedir}/src/main/resources/dbchangelog.xml</outputChangeLogFile>
                     <diffChangeLogFile>
                         ${project.basedir}/src/main/resources/db/migrations/${maven.build.timestamp}_changelog.xml
                     </diffChangeLogFile>
@@ -88,8 +88,8 @@
                         <version>3.0.0</version>
                     </dependency>
                     <dependency>
-                        <groupId>javax.validation</groupId>
-                        <artifactId>validation-api</artifactId>
+                        <groupId>jakarta.validation</groupId>
+                        <artifactId>jakarta.validation-api</artifactId>
                         <version>${validation-api.version}</version>
                     </dependency>
                     <dependency>
