@@ -1,11 +1,11 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
-    <persistence-unit name="com.liquibase.hibernate.tutorial.jpa" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="com.liquibase.hibernate.tutorial.jpa.tst" transaction-type="RESOURCE_LOCAL">
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="none" />
             <property name="javax.persistence.provider" value="org.hibernate.jpa.HibernatePersistenceProvider" />
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost:9090/mem:dev" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:file:~/test-h6" />
             <property name="javax.persistence.jdbc.user" value="dbuser" />
             <property name="javax.persistence.jdbc.password" value="letmein" />
             <property name="hibernate.connection.handling_mode" value="delayed_acquisition_and_release_after_transaction" />

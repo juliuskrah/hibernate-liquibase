@@ -1,6 +1,6 @@
 package com.liquibase;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 public class Application {
     private static EntityManagerFactory emf;
